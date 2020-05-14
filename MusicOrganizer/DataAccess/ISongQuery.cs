@@ -5,12 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MusicOrganizer.Entry
+namespace MusicOrganizer.DataAccess
 {
-    public class EntryViewModel
+    public interface ISongQuery
     {
-        public Song Song { get; set; } = new Song();
-
-
+        IEnumerable<Song> SearchFor(Song incompleteSong);
     }
 }

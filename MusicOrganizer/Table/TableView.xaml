@@ -15,6 +15,18 @@
         <StaticResource ResourceKey="vm"/>
     </UserControl.DataContext>
     <Grid>
-        
+        <ListView ItemsSource="{Binding Songs}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Titel" DisplayMemberBinding="{Binding Title}"/>
+                        <GridViewColumn Header="Interpret" DisplayMemberBinding="{Binding Interpret}"/>
+                        <GridViewColumn Header="Album" DisplayMemberBinding="{Binding Album}"/>
+                        <GridViewColumn Header="Jahr" DisplayMemberBinding="{Binding Jahr}"/>
+                        <GridViewColumn Header="Bemerkung" DisplayMemberBinding="{Binding Bemerkungen}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

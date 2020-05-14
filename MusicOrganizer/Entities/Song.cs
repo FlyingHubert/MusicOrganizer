@@ -12,24 +12,28 @@ namespace MusicOrganizer.Entities
         public int SongId { get; set; }
 
         [Required]
-        [MaxLength(100)]
+        [MaxLength(200)]
         public string Title { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(200)]
         public string Interpret { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(200)]
         public string Album { get; set; }
 
-        public int LP { get; set; }
+        public int? LP { get; set; }
 
-        public int single { get; set; }
+        public int? single { get; set; }
 
         public string Art { get; set; }
 
-        public int CD { get; set; }
+        
+        public int? CD { get; set; }
 
-        public int Jahr { get; set; }
+        public int? Jahr { get; set; }
+
+        [MaxLength(200)]
+        public string Komponist { get; set; }
 
         public string Bemerkungen { get; set; }
     }

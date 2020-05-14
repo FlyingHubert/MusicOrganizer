@@ -9,12 +9,62 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <local:EntryViewModel x:Key="vm"/>
+            <Style TargetType="TextBox">
+                <Setter Property="Margin" Value="5"/>
+            </Style>
         </ResourceDictionary>
     </UserControl.Resources>
     <UserControl.DataContext>
         <StaticResource ResourceKey="vm"/>
     </UserControl.DataContext>
-    <Grid>
-            
+
+    <Grid DataContext="{Binding Song}" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Titel:"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Title}"/>
+
+        <TextBlock Grid.Row="1" Text="Interpret:"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Interpret}"/>
+
+        <TextBlock Grid.Row="2" Text="Titelgem:"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Titelgem}"/>
+
+        <TextBlock Grid.Row="3" Text="LP:"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding LP}"/>
+
+        <TextBlock Grid.Row="4" Text="Single:"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Single}"/>
+
+        <TextBlock Grid.Row="5" Text="Genre/Art:"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Art}"/>
+
+        <TextBlock Grid.Row="6" Text="CD:"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding CD}"/>
+
+        <TextBlock Grid.Row="7" Text="Jahr:"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Jahr}"/>
+
+        <TextBlock Grid.Row="8" Text="Komponist:"/>
+        <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Komponist}"/>
+
+        <TextBlock Grid.Row="9" Text="Bemerkungen:"/>
+        <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding Bemerkungen}"/>
+
     </Grid>
 </UserControl>

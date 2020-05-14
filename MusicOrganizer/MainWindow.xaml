@@ -8,9 +8,9 @@
         xmlns:entry="clr-namespace:MusicOrganizer.Entry"
         xmlns:mixed="clr-namespace:MusicOrganizer.Mixed"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="786" Width="1024">
     <TabControl FontSize="24">
-        <TabItem Header="Maske" Padding="10">
+        <TabItem Header="Eingabe" Padding="10">
             <entry:EntryView/>
         </TabItem>
         <TabItem Header="Tabellenansicht">

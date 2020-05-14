@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MusicOrganizer.Data;
+using MusicOrganizer.DataAccess;
 
 namespace MusicOrganizer.Migrations
 {
@@ -23,7 +23,7 @@ namespace MusicOrganizer.Migrations
 
                     b.Property<string>("Album")
                         .HasColumnType("TEXT")
-                        .HasMaxLength(100);
+                        .HasMaxLength(200);
 
                     b.Property<string>("Art")
                         .HasColumnType("TEXT");
@@ -36,10 +36,14 @@ namespace MusicOrganizer.Migrations
 
                     b.Property<string>("Interpret")
                         .HasColumnType("TEXT")
-                        .HasMaxLength(100);
+                        .HasMaxLength(200);
 
                     b.Property<int>("Jahr")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Komponist")
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(200);
 
                     b.Property<int>("LP")
                         .HasColumnType("INTEGER");
@@ -47,7 +51,7 @@ namespace MusicOrganizer.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT")
-                        .HasMaxLength(100);
+                        .HasMaxLength(200);
 
                     b.Property<int>("single")
                         .HasColumnType("INTEGER");

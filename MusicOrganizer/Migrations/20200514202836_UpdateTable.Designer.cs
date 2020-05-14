@@ -8,8 +8,8 @@ using MusicOrganizer.DataAccess;
 namespace MusicOrganizer.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200514192127_NewTry")]
-    partial class NewTry
+    [Migration("20200514202836_UpdateTable")]
+    partial class UpdateTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,7 +25,7 @@ namespace MusicOrganizer.Migrations
 
                     b.Property<string>("Album")
                         .HasColumnType("TEXT")
-                        .HasMaxLength(100);
+                        .HasMaxLength(200);
 
                     b.Property<string>("Art")
                         .HasColumnType("TEXT");
@@ -38,10 +38,14 @@ namespace MusicOrganizer.Migrations
 
                     b.Property<string>("Interpret")
                         .HasColumnType("TEXT")
-                        .HasMaxLength(100);
+                        .HasMaxLength(200);
 
                     b.Property<int>("Jahr")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Komponist")
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(200);
 
                     b.Property<int>("LP")
                         .HasColumnType("INTEGER");
@@ -49,7 +53,7 @@ namespace MusicOrganizer.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT")
-                        .HasMaxLength(100);
+                        .HasMaxLength(200);
 
                     b.Property<int>("single")
                         .HasColumnType("INTEGER");

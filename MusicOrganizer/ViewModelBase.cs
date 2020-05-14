@@ -1,5 +1,9 @@
-﻿using System;
+﻿using MusicOrganizer.DataAccess;
+using MusicOrganizer.Entities;
+using Ninject;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -23,6 +27,12 @@ namespace MusicOrganizer
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
                 }
             }
+        }
+
+        public static T Get<T>()
+        {
+            IKernel kernel = new StandardKernel(new NinjectBindings());
+            return kernel.Get<T>();
         }
     }
 }

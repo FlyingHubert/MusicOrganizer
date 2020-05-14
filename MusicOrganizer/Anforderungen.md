@@ -1,5 +1,12 @@
 # Anforderungen
 
+## Environment
+
++ Die neue Applikation soll auf einem handelsüblichen Windows (7 oder 10) lauffähig sein
++ Die Datenbank wird dateibasiert sein und soll einen Standard erfüllen der Zukunftsweisend ist
++ Um Datenverlust zu vermeiden schlage ich ein Backup pro Tag oder Start der Applikation vor, wenns recht ist
++ Die Auflösung des Rechners ist mind. 1024 x 768
+
 ## Glossar
 
 + LP - Langspielplatte
@@ -16,13 +23,12 @@ Zu den Werten die eingegeben werden können gehören:
 
 + Titel
 + Interpret
-+ Titelgew **-> Was ist das?**
++ Titelgew **-> Was ist das? das Album?**
 + LP **-> Ist das die Langspielplatte?**
++ Art
 + Jahr
 + Komponist
 + Bemerkungen
-+ Single
-+ Art **NEU: Enumeration mit festen Werten oder allg. Feld? -> konfigurierbar?**
 + **Was ist mit den anderen Angaben? Was ist davon noch relevant? Welche Felder sollen ggf. umbenannt werden?**
 
 Bedienung:
@@ -53,11 +59,12 @@ Für numerische Werte lassen sich so auch Filter definieren z.B. *>100*. Durch d
 
 #### post condition
 
-#### 
+Das erste passende Ergebnis wird dem Benutzer in der Maske angezeigt. Durch das Drücken von $F9$ bzw. $F10$ lässt sich in den Ergebnissen Vor- und Zurückspringen. Die Anzeige bleibt dabei gleich.
 
-Der Benutzer 
- 1. Angabe von bekannten Werten. Fehlende oder offene Werte mit $..$ angeben
- 2. Angabe von LP > 100 -> Führt in der selben Maske zu einem Titel
- 3. Die Anzeige kann nun entweder nach dem ersten Treffer gehen oder Alternativ in Form einer Tabelle erfolgen
-    1. Die Tabelle lässt sich nach Kriterien sortieren -> Erst nach CD dann nach Interpret usw. (steigend, fallend!)
-    2. Ist man in der Trefferansicht lässt sich mit Tastenkombinationen durch die ergebnisse blättern. Dabei ist nicht die Tabellenansich zu sehen, sondern die einzelansicht.
+#### alternative flow
+
+Nach Eingabe der Suchkriterien kann in eine Tabelle gewechselt werden, die alle relevanten Ergebnisse anzeigt. Diese kann unter Angabe von Kriterien nach verschiedenen Parametern sortiert werden.
+
+### Optionale Features
+
++ Eingabe *Elviz* -> *Meinten sie vielleicht **Elvis**?*
