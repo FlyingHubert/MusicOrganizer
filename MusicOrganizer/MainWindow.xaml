@@ -9,6 +9,10 @@
         xmlns:mixed="clr-namespace:MusicOrganizer.Mixed"
         mc:Ignorable="d"
         Title="MainWindow" Height="786" Width="1024">
+    <Window.Resources>
+        <ResourceDictionary>
+        </ResourceDictionary>
+    </Window.Resources>
     <TabControl FontSize="24">
         <TabItem Header="Eingabe" Padding="10">
             <entry:EntryView/>

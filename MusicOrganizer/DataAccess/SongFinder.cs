@@ -11,11 +11,13 @@ namespace MusicOrganizer.DataAccess
     {
         public IEnumerable<Song> SearchFor(Song incompleteSong)
         {
+            var songComparer = new SongComparer(incompleteSong);
+
             using (var context = new DataContext())
             {
-                context.Songs.Find();
-                return context.Songs.Where(s => s.Title ==  "%" + incompleteSong.Title + "%").ToList(); //TODO: Incomplete search
-            }
+                var query = context.Songs.Where(song => songComparer.IsLike(song)); 
+                return query.ToList();
+            }                
         }
     }
 }
