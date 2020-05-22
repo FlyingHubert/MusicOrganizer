@@ -15,9 +15,23 @@
         <StaticResource ResourceKey="vm"/>
     </UserControl.DataContext>
     <Grid>
-        <ListView ItemsSource="{Binding Songs}">
+        <ListView ItemsSource="{Binding Songs}" SelectedValue="{Binding SelectedSong}" Background="{DynamicResource brush1}" Foreground="{DynamicResource brush5}">
             <ListView.View>
                 <GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="GridViewColumnHeader">
+                            <Setter Property="Background" Value="{DynamicResource brush2}"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                    <GridView.ColumnHeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <CheckBox/>
+                                <TextBlock Text="{Binding}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ColumnHeaderTemplate>
                     <GridView.Columns>
                         <GridViewColumn Header="Titel" DisplayMemberBinding="{Binding Title}"/>
                         <GridViewColumn Header="Interpret" DisplayMemberBinding="{Binding Interpret}"/>

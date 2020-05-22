@@ -2,12 +2,12 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:MusicOrganizer">
     <!-- colors -->
-    <SolidColorBrush x:Key="rot" Color="Red"/>
 
-    <Style TargetType="TextBox">
-        <Setter Property="Background" Value="#444444"/>
-        <Setter Property="Foreground" Value="#EEEEEE"/>
-        <Setter Property="Margin" Value="5"/>
-    </Style>
+    <SolidColorBrush x:Key="brush1" Color="#172d3b"/>
+    <SolidColorBrush x:Key="brush2" Color="#2a9d8f"/>
+    <SolidColorBrush x:Key="brush3" Color="#e9c46a"/>
+    <SolidColorBrush x:Key="brush4" Color="#f4a261"/>
+    <SolidColorBrush x:Key="brush5" Color="#e76f51"/>
+   
 
 </ResourceDictionary>

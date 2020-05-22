@@ -11,5 +11,7 @@ namespace MusicOrganizer.Table
     public class TableViewModel : ViewModelBase
     {
         public IEnumerable<Song> Songs { get; } = Get<ISongProvider>().Songs;
+
+        public Song SelectedSong { get; set; }
     }
 }

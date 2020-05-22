@@ -29,6 +29,7 @@ namespace MusicOrganizer.DataAccess
         }
 
         private Song Search { get; }
+
         public bool IsLike(Song entity)
         {
             return Checks.All(s => s(entity));
