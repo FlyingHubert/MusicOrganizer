@@ -18,9 +18,6 @@ namespace MusicOrganizer
     /// </summary>
     public partial class App : Application
     {
-        protected override void OnLoadCompleted(NavigationEventArgs e)
-        {
-            base.OnLoadCompleted(e);
-        }
+
     }
 }

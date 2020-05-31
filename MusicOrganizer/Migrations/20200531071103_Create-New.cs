@@ -2,7 +2,7 @@
 
 namespace MusicOrganizer.Migrations
 {
-    public partial class NewTry : Migration
+    public partial class CreateNew : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,14 +12,15 @@ namespace MusicOrganizer.Migrations
                 {
                     SongId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(maxLength: 100, nullable: false),
-                    Interpret = table.Column<string>(maxLength: 100, nullable: true),
-                    Album = table.Column<string>(maxLength: 100, nullable: true),
-                    LP = table.Column<int>(nullable: false),
-                    single = table.Column<int>(nullable: false),
+                    Title = table.Column<string>(maxLength: 200, nullable: false),
+                    Interpret = table.Column<string>(maxLength: 200, nullable: true),
+                    Album = table.Column<string>(maxLength: 200, nullable: true),
+                    LP = table.Column<int>(nullable: true),
+                    single = table.Column<int>(nullable: true),
                     Art = table.Column<string>(nullable: true),
-                    CD = table.Column<int>(nullable: false),
-                    Jahr = table.Column<int>(nullable: false),
+                    CD = table.Column<int>(nullable: true),
+                    Jahr = table.Column<int>(nullable: true),
+                    Komponist = table.Column<string>(maxLength: 200, nullable: true),
                     Bemerkungen = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

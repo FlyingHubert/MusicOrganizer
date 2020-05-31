@@ -5,109 +5,43 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MusicOrganizer.Entry"
              mc:Ignorable="d" Background="{DynamicResource brush1}">
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <local:EntryViewModel x:Key="vm"/>
-        </ResourceDictionary>
-    </UserControl.Resources>
-    <UserControl.DataContext>
-        <StaticResource ResourceKey="vm"/>
-    </UserControl.DataContext>
 
-    <Grid DataContext="{Binding Song}">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-
-        <local:NamedTextBox Grid.Row="0" Grid.Column="0" Text="{Binding Title}" Label="Titel" />
-        <local:NamedTextBox Grid.Row="1" Grid.Column="0" Text="{Binding Interpret}" Label="Interpret" />
-        <local:NamedTextBox Grid.Row="2" Grid.Column="0" Text="{Binding Titelgem}" Label="Titelgem" />
-        <local:NamedTextBox Grid.Row="3" Grid.Column="0" Text="{Binding LP}" Label="LP" />
-        <local:NamedTextBox Grid.Row="4" Grid.Column="0" Text="{Binding Single}" Label="Single" />
-        <local:NamedTextBox Grid.Row="5" Grid.Column="0" Text="{Binding Art}" Label="Genre/Art" />
-        <local:NamedTextBox Grid.Row="6" Grid.Column="0" Text="{Binding CD}" Label="CD" />
-        <local:NamedTextBox Grid.Row="7" Grid.Column="0" Text="{Binding Jahr}" Label="Jahr" />
-        <local:NamedTextBox Grid.Row="8" Grid.Column="0" Text="{Binding Komponist}" Label="Komponist" />
-        <local:NamedTextBox Grid.Row="9" Grid.Column="0" Text="{Binding Bemerkungen}" Label="Bemerkungen" />
-
         
-        
-        <!--
+        <Grid DataContext="{Binding Song}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="1" Text="Titel:"/>
+            <local:NamedTextBox Grid.Row="0" Grid.Column="0" Text="{Binding Title}" Label="Titel" />
+            <local:NamedTextBox Grid.Row="1" Grid.Column="0" Text="{Binding Interpret}" Label="Interpret" />
+            <local:NamedTextBox Grid.Row="2" Grid.Column="0" Text="{Binding Titelgem}" Label="Titelgem" />
+            <local:NamedTextBox Grid.Row="3" Grid.Column="0" Text="{Binding LP}" Label="LP" />
+            <local:NamedTextBox Grid.Row="4" Grid.Column="0" Text="{Binding single}" Label="Single" />
+            <local:NamedTextBox Grid.Row="5" Grid.Column="0" Text="{Binding Art}" Label="Genre/Art" />
+            <local:NamedTextBox Grid.Row="6" Grid.Column="0" Text="{Binding CD}" Label="CD" />
+            <local:NamedTextBox Grid.Row="7" Grid.Column="0" Text="{Binding Jahr}" Label="Jahr" />
+            <local:NamedTextBox Grid.Row="8" Grid.Column="0" Text="{Binding Komponist}" Label="Komponist" />
+            <local:NamedTextBox Grid.Row="9" Grid.Column="0" Text="{Binding Bemerkungen}" Label="Bemerkungen" />
+        </Grid>
 
-        <TextBox Grid.Row="2" Text="{Binding Interpret}">
-            <TextBox.Background>
-                <SolidColorBrush Color="{DynamicResource textBackground}"/>
-            </TextBox.Background>
-        </TextBox>
-        <TextBlock Grid.Row="3" Text="Interpret:"/>
-
-        <TextBox Grid.Row="4" Text="{Binding Titelgem}">
-            <TextBox.Background>
-                <SolidColorBrush Color="{DynamicResource textBackground}"/>
-            </TextBox.Background>
-        </TextBox>
-        <TextBlock Grid.Row="5" Text="Titelgem:"/>
-
-        <TextBox Grid.Row="6" Text="{Binding LP}">
-            <TextBox.Background>
-                <SolidColorBrush Color="{DynamicResource textBackground}"/>
-            </TextBox.Background>
-        </TextBox>
-        <TextBlock Grid.Row="7" Text="LP:"/>
-
-        <TextBox Grid.Row="8" Text="{Binding Single}">
-            <TextBox.Background>
-                <SolidColorBrush Color="{DynamicResource textBackground}"/>
-            </TextBox.Background>
-        </TextBox>
-        <TextBlock Grid.Row="9" Text="Single:"/>
-
-        <TextBox Grid.Row="10" Text="{Binding Art}">
-            <TextBox.Background>
-                <SolidColorBrush Color="{DynamicResource textBackground}"/>
-            </TextBox.Background>
-        </TextBox>
-        <TextBlock Grid.Row="11" Text="Genre/Art:"/>
-
-        <TextBox Grid.Row="12" Text="{Binding CD}">
-            <TextBox.Background>
-                <SolidColorBrush Color="{DynamicResource textBackground}"/>
-            </TextBox.Background>
-        </TextBox>
-        <TextBlock Grid.Row="13" Text="CD:"/>
-
-        <TextBox Grid.Row="14" Text="{Binding Jahr}">
-            <TextBox.Background>
-                <SolidColorBrush Color="{DynamicResource textBackground}"/>
-            </TextBox.Background>
-        </TextBox>
-        <TextBlock Grid.Row="15" Text="Jahr:"/>
-
-        <TextBox Grid.Row="16" Text="{Binding Komponist}">
-            <TextBox.Background>
-                <SolidColorBrush Color="{DynamicResource textBackground}"/>
-            </TextBox.Background>
-        </TextBox>
-        <TextBlock Grid.Row="17" Text="Komponist:"/>
-
-        <TextBox Grid.Row="18" Text="{Binding Bemerkungen}">
-            <TextBox.Background>
-                <SolidColorBrush Color="{DynamicResource textBackground}"/>
-            </TextBox.Background>
-        </TextBox>
-        <TextBlock Grid.Row="19" Text="Bemerkungen:"/>
-    -->
+        <Button Grid.Row="1" Content="Hinzufügen [F10]" Command="{Binding SaveSongCommand}"/>
     </Grid>
+    
+    
+    
 </UserControl>

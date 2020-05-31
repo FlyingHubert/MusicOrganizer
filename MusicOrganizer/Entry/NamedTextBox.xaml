@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MusicOrganizer.Entry" x:Class="MusicOrganizer.Entry.NamedTextBox" 
-             mc:Ignorable="d" Margin="15,3">
+             mc:Ignorable="d" x:Name="namedTextBox">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -12,9 +12,8 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <TextBox FontSize="20" Grid.Row="0" Text="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:NamedTextBox}}, FallbackValue='Text'}" 
-                 Background="{DynamicResource brush1}" BorderThickness="0,0,0,0" Foreground="{DynamicResource brush4}"/>
-        <TextBlock FontSize="20" Grid.Row="1" Text="{Binding Label, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:NamedTextBox}}, FallbackValue='Label'}" Background="{DynamicResource brush1}" Foreground="{DynamicResource brush2}"/>
+        <TextBox x:Name="textBox" Text="{Binding Text, ElementName=namedTextBox, FallbackValue='Text'}" FontSize="20" Grid.Row="0" Background="{DynamicResource brush1}" BorderThickness="0,0,0,0" Foreground="{DynamicResource brush4}"/>
+        <TextBlock x:Name="labelBlock" Text="{Binding Label, ElementName=namedTextBox, FallbackValue='Label'}" FontSize="20" Grid.Row="1" Background="{DynamicResource brush1}" Foreground="{DynamicResource brush2}"/>
         <Rectangle Margin="1,0,1,0" Stroke="Black" StrokeThickness="0" Height="1" VerticalAlignment="Bottom" Fill="{DynamicResource brush2}"/>
     </Grid>
 </UserControl>

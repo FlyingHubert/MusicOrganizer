@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ninject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +25,8 @@ namespace MusicOrganizer
         {
             InitializeComponent();
 
-            DataContext = new MainViewModel();
+            IKernel kernel = new StandardKernel(new NinjectBindings());
+            DataContext = kernel.Get<MainViewModel>();
         }
-
     }
 }

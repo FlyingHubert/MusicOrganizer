@@ -7,21 +7,18 @@
         xmlns:table="clr-namespace:MusicOrganizer.Table"
         xmlns:entry="clr-namespace:MusicOrganizer.Entry"
         xmlns:mixed="clr-namespace:MusicOrganizer.Mixed"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="786" Width="1024">
+        mc:Ignorable="d" Height="786" Width="1024" Title="Music Organizer" Background="{DynamicResource brush1}">
     <Window.Resources>
         <ResourceDictionary>
         </ResourceDictionary>
     </Window.Resources>
-    <TabControl FontSize="24">
-        <TabItem Header="Eingabe" Padding="10">
-            <entry:EntryView/>
-        </TabItem>
-        <TabItem Header="Tabellenansicht">
-            <table:TableView/>
-        </TabItem>
-        <TabItem Header="Gemischte Ansicht">
-            <mixed:MixedView/>
-        </TabItem>
-    </TabControl>
+    <Grid Margin="20" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2.5*" />
+        </Grid.ColumnDefinitions>
+
+        <entry:EntryView DataContext="{Binding EntryViewModel}" />
+        <table:TableView Grid.Column="1" DataContext="{Binding TableViewModel}"/>
+    </Grid>
 </Window>

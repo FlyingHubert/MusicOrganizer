@@ -28,7 +28,12 @@ namespace MusicOrganizer.Entry
 
         // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register("Text", typeof(string), typeof(NamedTextBox), new PropertyMetadata(""));
+            DependencyProperty.Register("Text", typeof(string), typeof(NamedTextBox), new FrameworkPropertyMetadata()
+            {
+                BindsTwoWayByDefault = true
+            });
+
+
 
         public string Label
         {
@@ -39,7 +44,6 @@ namespace MusicOrganizer.Entry
         // Using a DependencyProperty as the backing store for Label.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty LabelProperty =
             DependencyProperty.Register("Label", typeof(string), typeof(NamedTextBox), new PropertyMetadata(""));
-
 
         public NamedTextBox()
         {

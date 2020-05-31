@@ -1,4 +1,6 @@
 ﻿using MusicOrganizer.DataAccess;
+using MusicOrganizer.Entry;
+using MusicOrganizer.Table;
 using Ninject.Modules;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,11 @@ namespace MusicOrganizer
         {
             Bind<ISongQuery>().To<SongFinder>();
             Bind<ISongProvider>().To<SongProvider>();
+            Bind<ISongSaver>().To<SongSaver>();
+            Bind<ISaveSongCommand>().To<SaveSongCommand>();
+            Bind<MainViewModel>().ToSelf();
+            Bind<TableViewModel>().ToSelf();
+            Bind<EntryViewModel>().ToSelf();
         }
     }
 }
