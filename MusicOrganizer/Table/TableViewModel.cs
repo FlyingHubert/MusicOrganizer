@@ -1,17 +1,31 @@
-﻿using MusicOrganizer.DataAccess;
+﻿using MusicOrganizer.BusinessLogic;
+using MusicOrganizer.DataAccess;
 using MusicOrganizer.Entities;
+using MusicOrganizer.Entry;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
+using System.Windows.Threading;
 
 namespace MusicOrganizer.Table
 {
     public class TableViewModel : ViewModelBase
     {
-        public IEnumerable<Song> Songs { get; } = Get<ISongProvider>().Songs;
+        public TableViewModel(SongManager manager)
+        {
+            Manager = manager;
+        }
 
-        public Song SelectedSong { get; set; }
+        public Song SelectedSong
+        { 
+            set => Manager.Current = value;
+        }
+        public SongManager Manager { get; }
+
+        public ObservableCollection<Song> Songs => Manager.Songs;
     }
 }

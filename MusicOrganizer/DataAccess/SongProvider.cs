@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MusicOrganizer.DataAccess
 {
-    public class SongProvider : ISongProvider
+    public class SongProvider
     {
         public IEnumerable<Song> Songs
         { 

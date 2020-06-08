@@ -1,4 +1,6 @@
-﻿using Ninject;
+﻿using MusicOrganizer.Utils;
+
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +27,7 @@ namespace MusicOrganizer
         {
             InitializeComponent();
 
-            IKernel kernel = new StandardKernel(new NinjectBindings());
-            DataContext = kernel.Get<MainViewModel>();
+            DataContext = Ninja.Get<MainViewModel>();
         }
     }
 }

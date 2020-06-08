@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MusicOrganizer.DataAccess
 {
-    public class SongFinder : ISongQuery
+    public class SongFinder
     {
         public IEnumerable<Song> SearchFor(Song incompleteSong)
         {

@@ -17,14 +17,14 @@ namespace MusicOrganizer.DataAccess
             Checks = new Func<Song, bool>[]
             {
                 SongIsNotEmpty(),
-                MaybeCheckString((s) => s.Album),
-                MaybeCheckString((s) => s.Art),
-                MaybeCheckString((s) => s.Bemerkungen),
-                MaybeCheckString((s) => s.Interpret),
-                MaybeCheckString((s) => s.Komponist),
-                MaybeCheckString((s) => s.Title),
-                MaybeCheckInt((s) => s.CD),
-                MaybeCheckInt((s) => s.Jahr),
+                MaybeCheckString((s) => s?.Album),
+                MaybeCheckString((s) => s?.Art),
+                MaybeCheckString((s) => s?.Bemerkungen),
+                MaybeCheckString((s) => s?.Interpret),
+                MaybeCheckString((s) => s?.Komponist),
+                MaybeCheckString((s) => s?.Title),
+                MaybeCheckInt((s) => s?.CD),
+                MaybeCheckInt((s) => s?.Jahr),
             };
         }
 
@@ -51,14 +51,14 @@ namespace MusicOrganizer.DataAccess
 
         private Func<Song, bool> SongIsNotEmpty()
         {
-            var isEmtpy = string.IsNullOrEmpty(Search.Album)
-                && string.IsNullOrEmpty(Search.Art)
-                && string.IsNullOrEmpty(Search.Bemerkungen)
-                && string.IsNullOrEmpty(Search.Interpret)
-                && string.IsNullOrEmpty(Search.Komponist)
-                && string.IsNullOrEmpty(Search.Title)
-                && Search.CD == null
-                && Search.Jahr == null;
+            var isEmtpy = string.IsNullOrEmpty(Search?.Album)
+                && string.IsNullOrEmpty(Search?.Art)
+                && string.IsNullOrEmpty(Search?.Bemerkungen)
+                && string.IsNullOrEmpty(Search?.Interpret)
+                && string.IsNullOrEmpty(Search?.Komponist)
+                && string.IsNullOrEmpty(Search?.Title)
+                && Search?.CD == null
+                && Search?.Jahr == null;
 
             return (s) => !isEmtpy;
         }

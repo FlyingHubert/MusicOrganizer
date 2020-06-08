@@ -1,4 +1,5 @@
-﻿using MusicOrganizer.DataAccess;
+﻿using MusicOrganizer.BusinessLogic;
+using MusicOrganizer.DataAccess;
 using MusicOrganizer.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,17 @@ namespace MusicOrganizer.Entry
 {
     public class SaveSongCommand : ISaveSongCommand
     {
-        public SaveSongCommand(ICachedSongContainer songContainer, ISongSaver saver)
+        private EntryViewModel entryViewModel;
+        private SongManager songManager;
+
+        public SaveSongCommand(EntryViewModel entryViewModel, SongManager songManager)
         {
-            SongContainer = songContainer;
-            Saver = saver;
+            this.entryViewModel = entryViewModel;
+            this.songManager = songManager;
+
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        public ICachedSongContainer SongContainer { get; }
-        public ISongSaver Saver { get; }
 
         public event EventHandler CanExecuteChanged;
 
@@ -30,9 +33,9 @@ namespace MusicOrganizer.Entry
         }
 
         public void Execute(object parameter)
-        {
-            var toBeSaved = SongContainer.ReplaceCurrentSongWith(new Song());
-            Saver.Save(toBeSaved);
+        {           
+            songManager.Add(entryViewModel.Current);
+            entryViewModel.Current = new Song();
         }
     }
 }

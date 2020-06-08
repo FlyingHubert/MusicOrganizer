@@ -1,5 +1,7 @@
 ﻿using MusicOrganizer.DataAccess;
 using MusicOrganizer.Entities;
+using MusicOrganizer.Utils;
+
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -29,10 +31,6 @@ namespace MusicOrganizer
             }
         }
 
-        public static T Get<T>()
-        {
-            IKernel kernel = new StandardKernel(new NinjectBindings());
-            return kernel.Get<T>();
-        }
+        protected T Get<T>() => Ninja.Get<T>();
     }
 }
