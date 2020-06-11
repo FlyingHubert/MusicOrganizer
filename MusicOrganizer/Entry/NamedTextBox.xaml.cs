@@ -82,12 +82,12 @@ namespace MusicOrganizer.Entry
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if((F10Command?.CanExecute(null) ?? false) && e.Key == Key.F10)
+            if((F10Command?.CanExecute(null) ?? false) && e.SystemKey == Key.F10)
             {
                 F10Command.Execute(CommandParameter);
             }
 
-            if ((F5Command?.CanExecute(null) ?? false) && e.Key == Key.F5)
+            if ((F5Command?.CanExecute(null) ?? false) && e.SystemKey == Key.F5)
             {
                 F5Command.Execute(CommandParameter);
             }
