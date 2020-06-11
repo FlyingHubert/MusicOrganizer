@@ -42,6 +42,7 @@ namespace MusicOrganizer.Entry
             public LoadFromLast(EntryViewModel parent)
             {
                 this.parent = parent;
+                CanExecuteChanged?.Invoke(this, EventArgs.Empty);
             }
 
             public event EventHandler CanExecuteChanged;

@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MusicOrganizer.Entities;
 
+using System.Collections.Generic;
+
 namespace MusicOrganizer.DataAccess
 {
     class DataContext : DbContext

@@ -12,7 +12,8 @@
         </Style>
     </UserControl.Resources>
 
-    <ListView ItemsSource="{Binding Songs}" SelectedItem="{Binding SelectedSong, Mode=OneWayToSource}" Background="{DynamicResource brush2}" BorderThickness="0" Margin="10,0" Padding="10" FontSize="15">
+    <ListView ItemsSource="{Binding Songs}" SelectedItem="{Binding SelectedSong, Mode=OneWayToSource}" Background="{DynamicResource brush2}" BorderThickness="0" 
+              Margin="10,0" Padding="10" FontSize="15">
         <ListView.ItemContainerStyle>
             <Style TargetType="ListViewItem">
                 <Setter Property="Background" Value="{DynamicResource brush1}"/>
@@ -30,7 +31,7 @@
         </ListView.ItemContainerStyle>
 
         <ListView.View>
-            <GridView>
+            <GridView >
                 <GridView.ColumnHeaderContainerStyle>
                     <Style TargetType="GridViewColumnHeader">
                         <Setter Property="Foreground" Value="{DynamicResource brush3}"/>
@@ -51,7 +52,7 @@
                                             <ColumnDefinition Width="auto"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <Border x:Name="HeaderBorder" Background="{DynamicResource brush1}" Margin="0,0,0,0">
+                                        <Border x:Name="HeaderBorder" Background="{DynamicResource brush1}" Margin="0" Padding="3">
                                             <ContentPresenter x:Name="HeaderContent"
                                                   RecognizesAccessKey="True"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -59,7 +60,7 @@
                                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                         </Border>
                                             
-                                        <Canvas Grid.Column="1" Width="6" Background="{DynamicResource brush1}">
+                                        <Canvas Grid.Column="1" Width="10" Background="{DynamicResource brush1}">
                                             <Thumb x:Name="PART_HeaderGripper">
                                                 <Thumb.Style>
                                                     <Style TargetType="Thumb">
@@ -84,11 +85,17 @@
                         </Setter>
                     </Style>
                 </GridView.ColumnHeaderContainerStyle>
-                <GridView.Columns>
-                    <GridViewColumn Header="Titel" DisplayMemberBinding="{Binding Title}"/>
-                    <GridViewColumn Header="Interpret" DisplayMemberBinding="{Binding Interpret}"/>
-                    <GridViewColumn Header="Album" DisplayMemberBinding="{Binding Album}"/>
-                    <GridViewColumn Header="Jahr" DisplayMemberBinding="{Binding Jahr}"/>
+                <GridView.Columns >
+                    <GridViewColumn Header="Titel" DisplayMemberBinding="{Binding Title}" Width="auto"/>
+                    <GridViewColumn Header="Interpret" DisplayMemberBinding="{Binding Interpret}" Width="auto"/>
+                    <GridViewColumn Header="Album" DisplayMemberBinding="{Binding Album}" Width="auto"/>
+                    <GridViewColumn Header="LP" DisplayMemberBinding="{Binding LP}" Width="auto"/>
+                    <GridViewColumn Header="Single" DisplayMemberBinding="{Binding single}" Width="auto"/>
+                    <GridViewColumn Header="Art" DisplayMemberBinding="{Binding Art}" Width="auto"/>
+                    <GridViewColumn Header="CD" DisplayMemberBinding="{Binding CD}" Width="auto"/>
+                    <GridViewColumn Header="Jahr" DisplayMemberBinding="{Binding Jahr}" Width="auto"/>
+                    <GridViewColumn Header="Komponist" DisplayMemberBinding="{Binding Komponist}" Width="auto"/>
+                    <GridViewColumn Header="Bemerkungen" DisplayMemberBinding="{Binding Bemerkungen}" Width="auto"/>
                 </GridView.Columns>
             </GridView>
         </ListView.View>

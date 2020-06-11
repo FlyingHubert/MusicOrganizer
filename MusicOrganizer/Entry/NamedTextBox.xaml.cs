@@ -30,7 +30,7 @@ namespace MusicOrganizer.Entry
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(NamedTextBox), new FrameworkPropertyMetadata()
             {
-                BindsTwoWayByDefault = true
+                BindsTwoWayByDefault = true,
             });
 
 

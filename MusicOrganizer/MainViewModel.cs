@@ -7,6 +7,7 @@ using MusicOrganizer.Table;
 using MusicOrganizer.Entry;
 using MusicOrganizer.Mixed;
 using MusicOrganizer.DataAccess;
+using MusicOrganizer.TopBar;
 
 namespace MusicOrganizer
 {
@@ -16,10 +17,13 @@ namespace MusicOrganizer
 
         public EntryViewModel EntryViewModel { get; }
 
-        public MainViewModel(TableViewModel tableViewModel, EntryViewModel entryViewModel)
+        public TopBarViewModel TopBarViewModel { get; }
+
+        public MainViewModel(TableViewModel tableViewModel, EntryViewModel entryViewModel, TopBarViewModel topBarViewModel)
         {
             TableViewModel = tableViewModel;
             EntryViewModel = entryViewModel;
-        }    
+            TopBarViewModel = topBarViewModel;
+        }
     }
 }

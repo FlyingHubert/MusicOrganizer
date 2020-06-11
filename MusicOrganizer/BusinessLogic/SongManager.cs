@@ -1,4 +1,6 @@
-﻿using MusicOrganizer.DataAccess;
+﻿using Microsoft.EntityFrameworkCore;
+
+using MusicOrganizer.DataAccess;
 using MusicOrganizer.Entities;
 using MusicOrganizer.Entry;
 using MusicOrganizer.Utils;
@@ -16,6 +18,8 @@ namespace MusicOrganizer.BusinessLogic
 {
     public class SongManager
     {
+        private bool songsChanged = false;
+
         public string Name { get; set; } = "undefiniert";
         public static T Get<T>()
         {
@@ -23,18 +27,47 @@ namespace MusicOrganizer.BusinessLogic
             return kernel.Get<T>();
         }
 
+        public event EventHandler FilteredSongsChanged;
+
         public SongManager()
         {
-            Songs = new ObservableCollection<Song>(Get<SongProvider>().Songs);
+            songs = new List<Song>(Get<SongProvider>().Songs);
+            FilteredSongs = Songs;
         }
 
-        public ObservableCollection<Song> Songs { get; } 
+        internal void FilterForThis(string searchString)
+        {
+            if (string.IsNullOrEmpty(searchString))
+                FilteredSongs = Songs;
+
+            FilteredSongs = from song in Songs
+                            where (song.Album != null && song.Album.ToLower().Contains(searchString))
+                               || (song.Art != null && song.Art.ToLower().Contains(searchString))
+                               || (song.Bemerkungen != null && song.Bemerkungen.ToLower().Contains(searchString))
+                               || (song.Interpret != null && song.Interpret.ToLower().Contains(searchString))
+                               || (song.Komponist != null && song.Komponist.ToLower().Contains(searchString))
+                               || (song.Title != null && song.Title.ToLower().Contains(searchString))
+                               || (song.single != null && song.single.ToString().Contains(searchString))
+                               || (song.LP != null && song.LP.ToString().ToLower().Contains(searchString))
+                               || (song.Jahr != null && song.Jahr.ToString().ToLower().Contains(searchString))
+                               || (song.CD != null && song.CD.ToString().ToLower().Contains(searchString))
+                            select song;
+
+            FilteredSongsChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        public IEnumerable<Song> FilteredSongs { get; private set; }
+
+        public IEnumerable<Song> Songs => songs;
+
+        private ICollection<Song> songs;
 
         public Song Current { get; set; }
 
         internal void Add(Song current)
         {
-            Songs.Add(current);
+            songs.Add(current);
+            songsChanged = true;
         }
     }
 }

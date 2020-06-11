@@ -18,6 +18,7 @@ namespace MusicOrganizer.Table
         public TableViewModel(SongManager manager)
         {
             Manager = manager;
+            Manager.FilteredSongsChanged += (_, __) => Notify(nameof(Songs));
         }
 
         public Song SelectedSong
@@ -26,6 +27,13 @@ namespace MusicOrganizer.Table
         }
         public SongManager Manager { get; }
 
-        public ObservableCollection<Song> Songs => Manager.Songs;
+
+        public IEnumerable<Song> Songs
+        {
+            get
+            {
+                return Manager.FilteredSongs;
+            }
+        }
     }
 }

@@ -39,7 +39,7 @@
             <local:NamedTextBox Grid.Row="9" Grid.Column="0" Text="{Binding Current.Bemerkungen}" F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Bemerkungen" Label="Bemerkungen" />
         </Grid>
 
-        <Button Grid.Row="1" Content="Hinzufügen [F10]" Command="{Binding SaveSongCommand}">
+        <Button Grid.Row="1" Content="Hinzufügen [F10]" Height="60" Command="{Binding SaveSongCommand}">
         </Button>
     </Grid>
     
