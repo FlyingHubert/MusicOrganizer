@@ -18,30 +18,22 @@ namespace MusicOrganizer.BusinessLogic
 {
     public class SongManager
     {
-        private bool songsChanged = false;
-
         public string Name { get; set; } = "undefiniert";
-        public static T Get<T>()
-        {
-            IKernel kernel = new StandardKernel(new NinjectBindings());
-            return kernel.Get<T>();
-        }
 
         public SongManager()
         {
-            songs = new List<Song>(Get<SongProvider>().Songs);
+            songs = new List<Song>(Ninja.Get<SongProvider>().Songs);
         }
 
         public IEnumerable<Song> Songs => songs;
 
         private ICollection<Song> songs;
 
-        public Song Current { get; set; }
+        public Song? Current { get; set; }
 
         internal void Add(Song current)
         {
             songs.Add(current);
-            songsChanged = true;
         }
     }
 }

@@ -35,8 +35,8 @@ namespace MusicOrganizer
             }
         }
 
-        public static TableViewModel Table { get; set; } = Ninja.Get<TableViewModel>();
-        public static TopBarViewModel TopBar { get; set; } = Ninja.Get<TopBarViewModel>();
-        public static EntryViewModel Entry { get; set; } = Ninja.Get<EntryViewModel>();
+        public static TableViewModel Table { get; } = Ninja.Get<TableViewModel>();
+        public static TopBarViewModel TopBar { get; } = Ninja.Get<TopBarViewModel>();
+        public static EntryViewModel Entry { get; } = Ninja.Get<EntryViewModel>();
     }
 }

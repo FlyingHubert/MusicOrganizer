@@ -19,11 +19,8 @@ namespace MusicOrganizer.Utils
         static Ninja()
         {
             Kernel = new StandardKernel();
-
-            Load(new NinjectBindings());
+            Kernel.Load(new NinjectBindings());
         }
-
-        public static void Load(INinjectModule module) => Kernel.Load(module);
 
         public static T Get<T>() => Kernel.Get<T>();
     }

@@ -17,7 +17,7 @@ namespace MusicOrganizer.DataAccess
                 using (var context = new DataContext())
                 {
                     context.Add(toBeSaved);
-                    await context.SaveChangesAsync();
+                    await context.SaveChangesAsync().ConfigureAwait(false);
                 }
             }
             catch (Exception)
