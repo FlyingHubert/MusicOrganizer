@@ -14,7 +14,7 @@ namespace MusicOrganizer.DataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlite("Data Source=SqliteSongs.db");
+            options.UseSqlite($"Data Source={Settings.DatabaseName}");
         }
 
         public DbSet<Song> Songs { get; set; }

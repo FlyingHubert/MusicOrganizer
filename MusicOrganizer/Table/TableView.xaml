@@ -5,15 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MusicOrganizer.Table"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Margin="-10" x:Name="control">
     <UserControl.Resources>
+        <CollectionViewSource x:Key="songs" Source="{Binding Songs}"/>
         <Style x:Name="GridViewColumnHeaderGripper" TargetType="Thumb">
 
         </Style>
     </UserControl.Resources>
 
-    <ListView ItemsSource="{Binding Songs}" SelectedItem="{Binding SelectedSong, Mode=OneWayToSource}" Background="{DynamicResource brush2}" BorderThickness="0" 
-              Margin="10,0" Padding="10" FontSize="15">
+    <ListView x:Name="listView" ItemsSource="{Binding Source={StaticResource songs}}" SelectedItem="{Binding SelectedSong}" Background="{Binding Path=Background, ElementName=control}" BorderThickness="0" 
+              Padding="10" FontSize="15">
+        <ListView.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Löschen" Command="{Binding RemoveCommand}" CommandParameter="{Binding }"/>
+            </ContextMenu>
+        </ListView.ContextMenu>
         <ListView.ItemContainerStyle>
             <Style TargetType="ListViewItem">
                 <Setter Property="Background" Value="{DynamicResource brush1}"/>
@@ -52,7 +58,7 @@
                                             <ColumnDefinition Width="auto"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <Border x:Name="HeaderBorder" Background="{DynamicResource brush1}" Margin="0" Padding="3">
+                                        <Border x:Name="HeaderBorder" Background="{DynamicResource brush1}" Margin="0" Padding="5">
                                             <ContentPresenter x:Name="HeaderContent"
                                                   RecognizesAccessKey="True"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"

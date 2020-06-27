@@ -24,7 +24,6 @@ namespace MusicOrganizer.TopBar
             {
                 searchString = value;
                 Notify();
-                SongManager.FilterForThis(searchString);
             }
         }
 

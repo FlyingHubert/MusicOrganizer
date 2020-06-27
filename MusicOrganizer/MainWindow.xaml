@@ -13,7 +13,7 @@
         <ResourceDictionary>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid Margin="20" >
+    <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -24,8 +24,8 @@
         </Grid.ColumnDefinitions>
 
 
-        <topbar:TopBarView DataContext="{Binding TopBarViewModel}" Grid.Column="1"/>
-        <entry:EntryView DataContext="{Binding EntryViewModel}" Grid.RowSpan="2" />
-        <table:TableView Grid.Column="1" Grid.Row="1" DataContext="{Binding TableViewModel}" />
+        <topbar:TopBarView DataContext="{Binding TopBarViewModel}" Grid.Column="1" Padding="10"/>
+        <entry:EntryView DataContext="{Binding EntryViewModel}" Grid.RowSpan="2" Padding="10" />
+        <table:TableView Grid.Column="1" Grid.Row="1" DataContext="{Binding TableViewModel}" Padding="10" Filter="{Binding Filter}"/>
     </Grid>
 </Window>

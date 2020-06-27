@@ -18,6 +18,8 @@ namespace MusicOrganizer.Entry
     /// </summary>
     public partial class EntryView : UserControl
     {
+
+
         public EntryView()
         {
             InitializeComponent();

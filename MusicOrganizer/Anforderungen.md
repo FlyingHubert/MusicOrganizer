@@ -2,10 +2,10 @@
 
 ## Environment
 
-+ Die neue Applikation soll auf einem handelsüblichen Windows (7 oder 10) lauffähig sein
-+ Die Datenbank wird dateibasiert sein und soll einen Standard erfüllen der Zukunftsweisend ist
++ [x] Die neue Applikation soll auf einem handelsüblichen Windows (7 oder 10) lauffähig sein
++ [x] Die Datenbank wird dateibasiert sein und soll einen Standard erfüllen der Zukunftsweisend ist
 + Um Datenverlust zu vermeiden schlage ich ein Backup pro Tag oder Start der Applikation vor, wenns recht ist
-+ Die Auflösung des Rechners ist mind. 1024 x 768
++ [x] Die Auflösung des Rechners ist mind. 1024 x 768
 
 ## Glossar
 
@@ -33,8 +33,8 @@ Zu den Werten die eingegeben werden können gehören:
 
 Bedienung:
 
-+ $F10$ -> Eingabe beendet
-+ $F5$ -> übernimmt den Wert des Feldes vom vorherigen Song (Wenn der Interpret vorher 'Elvis' war, so steht nach dem drücken von $F5$ 'Elvis' im Feld)
++ [x] $F10$ -> Eingabe beendet
++ [x] $F5$ -> übernimmt den Wert des Feldes vom vorherigen Song (Wenn der Interpret vorher 'Elvis' war, so steht nach dem drücken von $F5$ 'Elvis' im Feld)
 
 #### alternative flow
 
@@ -42,8 +42,8 @@ Die Eingabe mehrerer Songs hintereinander wird durchgeführt. Hier ist es mögli
 
 #### post condition
 
-+ Der Song befindet sich in der Datenbank
-+ Die Felder der Eingabemaske sind wieder leer
++  [x] Der Song befindet sich in der Datenbank
++  [x] Die Felder der Eingabemaske sind wieder leer
 + Das erste Feld der Maske ist angewählt
 
 #### exceptional flow

@@ -9,7 +9,7 @@
     
     <UserControl.Style>
         <Style TargetType="UserControl">
-            <Setter Property="Background" Value="{DynamicResource brush1}" x:Name="back" />
+            <Setter Property="Background" Value="Transparent" x:Name="back" />
             <Setter Property="Foreground" Value="{DynamicResource brush2}"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -24,8 +24,9 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="textBox" Text="{Binding Text, ElementName=namedTextBox, FallbackValue='Text', UpdateSourceTrigger=PropertyChanged}" KeyDown="textBox_KeyDown" FontSize="20" Grid.Row="0" Background="{DynamicResource brush1}" BorderThickness="0,0,0,0" Foreground="{DynamicResource brush4}"/>
-        <TextBlock x:Name="labelBlock" Text="{Binding Label, ElementName=namedTextBox, FallbackValue='Label'}" FontSize="20" Grid.Row="1" Background="{DynamicResource brush1}"/>
+        <TextBox x:Name="textBox" Text="{Binding Text, ElementName=namedTextBox, FallbackValue='Text', UpdateSourceTrigger=PropertyChanged}" KeyDown="textBox_KeyDown" FontSize="20" Grid.Row="0" 
+                 Background="Transparent" BorderThickness="0,0,0,0" Foreground="{DynamicResource brush4}"/>
+        <TextBlock x:Name="labelBlock" Text="{Binding Label, ElementName=namedTextBox, FallbackValue='Label'}" FontSize="20" Grid.Row="1" Background="Transparent"/>
         <Rectangle Margin="1,0,1,0" Stroke="Black" StrokeThickness="0" Height="1" VerticalAlignment="Bottom" Fill="{Binding Path=Foreground, ElementName=labelBlock}"/>
     </Grid>
 </UserControl>

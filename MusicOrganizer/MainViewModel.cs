@@ -24,6 +24,7 @@ namespace MusicOrganizer
             TableViewModel = tableViewModel;
             EntryViewModel = entryViewModel;
             TopBarViewModel = topBarViewModel;
+            Get<Mediator>();
         }
     }
 }

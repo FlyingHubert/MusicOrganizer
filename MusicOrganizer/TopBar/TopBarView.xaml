@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:MusicOrganizer.TopBar"
              xmlns:entry="clr-namespace:MusicOrganizer.Entry"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="600">
-    <Grid Margin="10,0,5,20">
+             d:DesignHeight="50" d:DesignWidth="600" Background="Transparent">
+    <Grid Margin="10,0,5,10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>

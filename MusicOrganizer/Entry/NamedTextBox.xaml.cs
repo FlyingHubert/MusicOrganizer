@@ -1,5 +1,8 @@
-﻿using System;
+﻿using MusicOrganizer.Table;
+
+using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,6 +22,26 @@ namespace MusicOrganizer.Entry
     public partial class NamedTextBox : UserControl
     {
 
+        public bool HasFocus
+        {
+            get { return (bool)GetValue(HasFocusProperty); }
+            set { SetValue(HasFocusProperty, value); }
+        }
+
+        public static readonly DependencyProperty HasFocusProperty =
+            DependencyProperty.Register("HasFocus", typeof(bool), typeof(NamedTextBox), new FrameworkPropertyMetadata(HasFocusChanged)
+            {
+                BindsTwoWayByDefault = true,
+            });
+
+        private static void HasFocusChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if(((bool)e.NewValue)== true)
+            {
+                var @this = d as NamedTextBox;
+                Keyboard.Focus(@this.textBox);
+            }            
+        }
 
         public string Text
         {
@@ -26,14 +49,11 @@ namespace MusicOrganizer.Entry
             set { SetValue(TextProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(NamedTextBox), new FrameworkPropertyMetadata()
             {
                 BindsTwoWayByDefault = true,
             });
-
-
 
         public object CommandParameter
         {
@@ -41,7 +61,6 @@ namespace MusicOrganizer.Entry
             set { SetValue(CommandParameterProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for CommandParameter.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CommandParameterProperty =
             DependencyProperty.Register("CommandParameter", typeof(object), typeof(NamedTextBox), new FrameworkPropertyMetadata());
 
@@ -91,6 +110,13 @@ namespace MusicOrganizer.Entry
             {
                 F5Command.Execute(CommandParameter);
             }
+
+            if((AbortCommand?.CanExecute(null) ?? false) && e.SystemKey == Key.Escape)
+            {
+                AbortCommand.Execute(CommandParameter);
+            }
         }
+
+        public ICommand AbortCommand { get; } = new AbortCommand();
     }
 }
