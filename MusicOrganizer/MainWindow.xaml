@@ -6,14 +6,13 @@
         xmlns:local="clr-namespace:MusicOrganizer"
         xmlns:table="clr-namespace:MusicOrganizer.Table"
         xmlns:entry="clr-namespace:MusicOrganizer.Entry"
-        xmlns:mixed="clr-namespace:MusicOrganizer.Mixed"
         xmlns:topbar="clr-namespace:MusicOrganizer.TopBar"
-        mc:Ignorable="d" Height="800" Width="1400" Title="Music Organizer" Background="{DynamicResource brush1}">
+        mc:Ignorable="d" Height="800" Width="1400" Title="Music Organizer" Background="{DynamicResource background2}">
     <Window.Resources>
         <ResourceDictionary>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid Margin="20">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -23,9 +22,8 @@
             <ColumnDefinition Width="2.5*" />
         </Grid.ColumnDefinitions>
 
-
-        <topbar:TopBarView DataContext="{Binding TopBarViewModel}" Grid.Column="1" Padding="10"/>
-        <entry:EntryView DataContext="{Binding EntryViewModel}" Grid.RowSpan="2" Padding="10" />
-        <table:TableView Grid.Column="1" Grid.Row="1" DataContext="{Binding TableViewModel}" Padding="10" Filter="{Binding Filter}"/>
+        <topbar:TopBarView DataContext="{Binding TopBarViewModel}" Grid.Column="1" Padding="10" Margin="0,10,10,10" Background="{DynamicResource background1}"/>
+        <entry:EntryView DataContext="{Binding EntryViewModel}" Grid.RowSpan="2" Padding="10" Margin="10" Background="{DynamicResource background1}" />
+        <table:TableView Grid.Column="1" Grid.Row="1" DataContext="{Binding TableViewModel}" Margin="0,0,10,10" Padding="10" Filter="{Binding Filter}" Background="{DynamicResource background1}"/>
     </Grid>
 </Window>

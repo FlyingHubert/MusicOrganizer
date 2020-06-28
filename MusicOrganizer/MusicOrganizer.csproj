@@ -9,9 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\close.png" />
-    <None Remove="Images\pencil.png" />
-    <None Remove="Images\plus.png" />
+    <None Remove="Resources\Images\close.png" />
+    <None Remove="Resources\Images\pencil.png" />
+    <None Remove="Resources\Images\plus.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,9 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\close.png" />
-    <Resource Include="Images\pencil.png" />
-    <Resource Include="Images\plus.png" />
+    <Resource Include="Resources\Images\close.png" />
+    <Resource Include="Resources\Images\pencil.png" />
+    <Resource Include="Resources\Images\plus.png" />
   </ItemGroup>
 
   <ItemGroup>

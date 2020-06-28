@@ -111,7 +111,7 @@ namespace MusicOrganizer.Entry
                 F5Command.Execute(CommandParameter);
             }
 
-            if((AbortCommand?.CanExecute(null) ?? false) && e.SystemKey == Key.Escape)
+            if((AbortCommand?.CanExecute(null) ?? false) && e.Key == Key.Escape)
             {
                 AbortCommand.Execute(CommandParameter);
             }

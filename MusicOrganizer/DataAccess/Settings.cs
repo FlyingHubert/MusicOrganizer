@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MusicOrganizer.DataAccess
 {
-    public class Settings
+    public static class Settings
     {
         public static string DatabaseName { get; } = "SqliteSongs.db";
         public static string BackupFolder { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),

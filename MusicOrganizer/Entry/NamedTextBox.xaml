@@ -25,7 +25,7 @@
         </Grid.RowDefinitions>
 
         <TextBox x:Name="textBox" Text="{Binding Text, ElementName=namedTextBox, FallbackValue='Text', UpdateSourceTrigger=PropertyChanged}" KeyDown="textBox_KeyDown" FontSize="20" Grid.Row="0" 
-                 Background="Transparent" BorderThickness="0,0,0,0" Foreground="{DynamicResource brush4}"/>
+                 Background="Transparent" BorderThickness="0,0,0,0" Foreground="{DynamicResource brush4}" CaretBrush="{DynamicResource brush4}"/>
         <TextBlock x:Name="labelBlock" Text="{Binding Label, ElementName=namedTextBox, FallbackValue='Label'}" FontSize="20" Grid.Row="1" Background="Transparent"/>
         <Rectangle Margin="1,0,1,0" Stroke="Black" StrokeThickness="0" Height="1" VerticalAlignment="Bottom" Fill="{Binding Path=Foreground, ElementName=labelBlock}"/>
     </Grid>

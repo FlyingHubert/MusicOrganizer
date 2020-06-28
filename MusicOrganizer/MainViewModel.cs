@@ -5,7 +5,6 @@ using System.Text;
 using System.Linq;
 using MusicOrganizer.Table;
 using MusicOrganizer.Entry;
-using MusicOrganizer.Mixed;
 using MusicOrganizer.DataAccess;
 using MusicOrganizer.TopBar;
 

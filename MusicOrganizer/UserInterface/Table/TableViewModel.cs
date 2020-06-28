@@ -38,14 +38,15 @@ namespace MusicOrganizer.Table
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
                     foreach (var item in e.NewItems)
                     {
-                        if(item != null)
-                            AddedSongs.Add(item as Song);
+                        if(item is SongViewModel songViewModel)
+                            AddedSongs.Add(songViewModel.Song);
                     }
                     break;
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
                     foreach (var item in e.OldItems)
                     {
-                        RemovedSongs.Add(item as Song);
+                        if(item is SongViewModel songViewModel)
+                            RemovedSongs.Add(songViewModel.Song);
                     }
                     break;
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Replace:
