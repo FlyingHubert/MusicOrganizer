@@ -1,8 +1,9 @@
 ﻿using MusicOrganizer.BusinessLogic;
 using MusicOrganizer.DataAccess;
+using MusicOrganizer.DI;
 using MusicOrganizer.Entities;
 using MusicOrganizer.Table;
-using MusicOrganizer.Utils;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,9 +1,10 @@
 ﻿using MusicOrganizer.DataAccess;
+using MusicOrganizer.DI;
 using MusicOrganizer.Entry;
 using MusicOrganizer.Table;
-using MusicOrganizer.Utils;
 
 using Ninject;
+
 using System;
 using System.Collections.Generic;
 using System.Configuration;

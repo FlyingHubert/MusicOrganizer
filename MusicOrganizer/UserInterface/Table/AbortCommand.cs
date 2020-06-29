@@ -1,5 +1,5 @@
-﻿using MusicOrganizer.Entry;
-using MusicOrganizer.Utils;
+﻿using MusicOrganizer.DI;
+using MusicOrganizer.Entry;
 
 using System;
 using System.Collections.Generic;

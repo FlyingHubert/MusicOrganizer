@@ -1,8 +1,9 @@
 ﻿using MusicOrganizer.DataAccess;
+using MusicOrganizer.DI;
 using MusicOrganizer.Entities;
-using MusicOrganizer.Utils;
 
 using Ninject;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

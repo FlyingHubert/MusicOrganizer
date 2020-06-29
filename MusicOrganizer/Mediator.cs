@@ -1,7 +1,7 @@
-﻿using MusicOrganizer.Entry;
+﻿using MusicOrganizer.DI;
+using MusicOrganizer.Entry;
 using MusicOrganizer.Table;
 using MusicOrganizer.TopBar;
-using MusicOrganizer.Utils;
 
 using System;
 using System.Collections.Generic;

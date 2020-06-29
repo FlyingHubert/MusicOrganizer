@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 using MusicOrganizer.DataAccess;
+using MusicOrganizer.DI;
 using MusicOrganizer.Entities;
 using MusicOrganizer.Entry;
-using MusicOrganizer.Utils;
 
 using Ninject;
 

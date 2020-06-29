@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Resources\Images\close.png" />
     <Resource Include="Resources\Images\pencil.png" />
     <Resource Include="Resources\Images\plus.png" />
