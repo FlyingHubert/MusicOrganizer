@@ -1,9 +1,8 @@
 ﻿using MusicOrganizer.DataAccess;
-using MusicOrganizer.Entry;
-using MusicOrganizer.Table;
 using MusicOrganizer.Utils;
 
 using Ninject;
+
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -35,22 +34,11 @@ namespace MusicOrganizer
             });
         }
 
-        protected override void OnExit(ExitEventArgs e)
+        protected async override void OnExit(ExitEventArgs e)
         {
-            BackupTask.GetAwaiter().GetResult();
+            await BackupTask.ConfigureAwait(false);
 
-            using (var context = new DataContext())
-            {
-                var table = Ninja.Get<TableViewModel>();
-                context.Songs.AddRange(table.AddedSongs);
-                context.Songs.RemoveRange(table.RemovedSongs);
-
-                var entry = Ninja.Get<EntryViewModel>();
-                context.Songs.UpdateRange(entry.ChangedSongs);
-
-                context.SaveChanges();
-            }
-
+            Ninja.Get<Database>().Save();
             base.OnExit(e);
         }
     }

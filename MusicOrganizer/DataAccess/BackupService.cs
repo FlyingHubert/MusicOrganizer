@@ -22,7 +22,8 @@ namespace MusicOrganizer.DataAccess
             var targetFileName = file.Replace(".db", $"{DateTime.Now:yyyy-MM-dd-HH-mm-ss}.db");
             var targetFilePath = Path.Combine(targetFolder, targetFileName);
 
-            File.Copy(sourceFile, targetFilePath);
+            if(File.Exists(sourceFile))
+                File.Copy(sourceFile, targetFilePath);
         }
 
         public static void CleanupBackupFolder()

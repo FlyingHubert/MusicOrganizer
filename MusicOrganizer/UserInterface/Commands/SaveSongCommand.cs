@@ -1,8 +1,9 @@
 ﻿using MusicOrganizer.BusinessLogic;
 using MusicOrganizer.DataAccess;
 using MusicOrganizer.Entities;
-using MusicOrganizer.Table;
+using MusicOrganizer.UserInterface.Entry;
 using MusicOrganizer.Utils;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +11,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MusicOrganizer.Entry
+namespace MusicOrganizer.UserInterface.Commands
 {
-    public class SaveSongCommand : ISaveSongCommand
+    public class SaveSongCommand : ICommand
     {
-        public SaveSongCommand()
+        private readonly SongManager manager;
+
+        public SaveSongCommand(SongManager manager)
         {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+            this.manager = manager;
         }
 
         public event EventHandler CanExecuteChanged;
@@ -29,9 +33,7 @@ namespace MusicOrganizer.Entry
         public void Execute(object parameter)
         {
             var source = Ninja.Get<EntryViewModel>();
-            Ninja.Get<TableViewModel>().Add(source.Current);
-            source.AddNewSong();
-
+            manager.AddSongToDatabase();
             source.FirstItemHasFocus = true;
         }
     }

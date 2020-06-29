@@ -11,15 +11,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MusicOrganizer.Entry
+namespace MusicOrganizer.UserInterface.Entry
 {
     /// <summary>
     /// Interaktionslogik für EntryView.xaml
     /// </summary>
     public partial class EntryView : UserControl
     {
-
-
         public EntryView()
         {
             InitializeComponent();
