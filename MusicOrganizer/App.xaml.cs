@@ -51,6 +51,7 @@ namespace MusicOrganizer
                 context.SaveChanges();
             }
 
+            Ninja.Get<Database>().Commit();
             base.OnExit(e);
         }
     }

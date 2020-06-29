@@ -25,11 +25,29 @@ namespace MusicOrganizer.BusinessLogic
             songs = new List<Song>(Ninja.Get<SongProvider>().Songs);
         }
 
-        public IEnumerable<Song> Songs => songs;
+        public SongModel PreviousEditableSong { get; set; }
+
+        private Database Database { get; }
+
+        public event EventHandler<SongModel> SongAdded;
+        public event EventHandler<SongModel> SongRemoved;
+        public IEnumerable<SongModel> Songs => Database.Songs.Select(s => new SongModel(s));
+
+        public void AddSongToDatabase()
+        {
+            Database.Insert(EditableSong.Song);
+            SongAdded.Invoke(this, EditableSong);
+            EditableSong = new SongModel(new Song());
+            StateChanged?.Invoke(this,State.Adding);
+        }
 
         private ICollection<Song> songs;
 
-        public Song? Current { get; set; }
+        public void Remove(SongModel songModel)
+        {
+            Database.Delete(songModel.Song);
+            SongRemoved.Invoke(this, songModel);
+        }
 
         internal void Add(Song current)
         {
