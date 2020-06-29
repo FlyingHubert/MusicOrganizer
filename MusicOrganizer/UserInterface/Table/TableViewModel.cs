@@ -1,74 +1,47 @@
 ﻿using MusicOrganizer.BusinessLogic;
-using MusicOrganizer.DataAccess;
-using MusicOrganizer.Entities;
-using MusicOrganizer.Entry;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Data;
-using System.Windows.Input;
-using System.Windows.Threading;
+using MusicOrganizer.UserInterface.Commands;
 
-namespace MusicOrganizer.Table
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Input;
+
+namespace MusicOrganizer.UserInterface.Table
 {
-    public class TableViewModel : ViewModelBase, ICollection<SongViewModel>
+    public class TableViewModel : ViewModelBase
     {
         private string filter;
-
-        public ICollection<Song> AddedSongs { get; } =  new List<Song>();
-        public ICollection<Song> RemovedSongs { get; } = new List<Song>();
 
         public ICommand RemoveCommand { get; } = new RemoveCommand();
 
         public TableViewModel(SongManager manager)
         {
             Manager = manager;
-            Songs = new ObservableCollection<SongViewModel>(Manager.Songs.Select(s => new SongViewModel(s)));
-            Songs.CollectionChanged += Songs_CollectionChanged;
-        }
-
-        private void Songs_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            switch (e.Action)
+            Manager.SongAdded += (_, addedSong) =>
             {
-                case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
-                    foreach (var item in e.NewItems)
-                    {
-                        if(item is SongViewModel songViewModel)
-                            AddedSongs.Add(songViewModel.Song);
-                    }
-                    break;
-                case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
-                    foreach (var item in e.OldItems)
-                    {
-                        if(item is SongViewModel songViewModel)
-                            RemovedSongs.Add(songViewModel.Song);
-                    }
-                    break;
-                case System.Collections.Specialized.NotifyCollectionChangedAction.Replace:
-                    break;
-                case System.Collections.Specialized.NotifyCollectionChangedAction.Move:
-                    break;
-                case System.Collections.Specialized.NotifyCollectionChangedAction.Reset:
-                    break;
-            }
+                Songs.Add(addedSong);
+            };
+            Manager.SongRemoved += (_, removedSong) =>
+            {
+                var SongModel = Songs.First(songModel => songModel == removedSong);
+                Songs.Remove(SongModel);
+            };
+
+            Songs = new ObservableCollection<SongModel>(manager.Songs);
         }
 
-        private SongViewModel selectedSongViewModel;
+        private SongModel selectedSongModel;
 
-        public SongViewModel SelectedSong
+        public SongModel SelectedSongModel
         {
             set
             {
-                selectedSongViewModel = value;
+                selectedSongModel = value;
+                Manager.EditThisSong(selectedSongModel);
                 Notify();
             }
 
-            get => selectedSongViewModel;
+            get => selectedSongModel;
         }
 
         public string Filter
@@ -83,45 +56,6 @@ namespace MusicOrganizer.Table
 
         public SongManager Manager { get; }
 
-        public ObservableCollection<SongViewModel> Songs { get; }
-
-        public int Count => ((ICollection<Song>)Songs).Count;
-
-        public bool IsReadOnly => ((ICollection<Song>)Songs).IsReadOnly;
-
-        public void Add(SongViewModel item)
-        {
-            ((ICollection<SongViewModel>)Songs).Add(item);
-        }
-
-        public bool Contains(SongViewModel item)
-        {
-            return ((ICollection<SongViewModel>)Songs).Contains(item);
-        }
-
-        public void CopyTo(SongViewModel[] array, int arrayIndex)
-        {
-            ((ICollection<SongViewModel>)Songs).CopyTo(array, arrayIndex);
-        }
-
-        public bool Remove(SongViewModel item)
-        {
-            return ((ICollection<SongViewModel>)Songs).Remove(item);
-        }
-
-        IEnumerator<SongViewModel> IEnumerable<SongViewModel>.GetEnumerator()
-        {
-            return ((IEnumerable<SongViewModel>)Songs).GetEnumerator();
-        }
-
-        public void Clear()
-        {
-            ((ICollection<SongViewModel>)Songs).Clear();
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            return ((IEnumerable)Songs).GetEnumerator();
-        }
+        public ObservableCollection<SongModel> Songs { get; } 
     }
 }

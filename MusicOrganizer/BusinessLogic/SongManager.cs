@@ -1,28 +1,38 @@
-﻿using Microsoft.EntityFrameworkCore;
-
+﻿
 using MusicOrganizer.DataAccess;
 using MusicOrganizer.DI;
 using MusicOrganizer.Entities;
-using MusicOrganizer.Entry;
-
-using Ninject;
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MusicOrganizer.BusinessLogic
 {
+    public enum State { Editing, Adding }
+
     public class SongManager
     {
-        public string Name { get; set; } = "undefiniert";
-
-        public SongManager()
+        public SongManager(Database database)
         {
-            songs = new List<Song>(Ninja.Get<SongProvider>().Songs);
+            Database = database;
+            EditableSong = new SongModel(new Song());
+        }
+
+        private SongModel editableSong;
+
+        public event EventHandler EditableSongChanged;
+        public event EventHandler<State> StateChanged;
+
+        public SongModel EditableSong
+        {
+            get => editableSong;
+            private set
+            {
+                PreviousEditableSong = editableSong;
+                editableSong = value;
+                EditableSongChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         public SongModel PreviousEditableSong { get; set; }
@@ -35,23 +45,23 @@ namespace MusicOrganizer.BusinessLogic
 
         public void AddSongToDatabase()
         {
-            Database.Insert(EditableSong.Song);
+            Database.Add(EditableSong.Song);
             SongAdded.Invoke(this, EditableSong);
             EditableSong = new SongModel(new Song());
             StateChanged?.Invoke(this,State.Adding);
         }
 
-        private ICollection<Song> songs;
 
         public void Remove(SongModel songModel)
         {
-            Database.Delete(songModel.Song);
+            Database.Remove(songModel.Song);
             SongRemoved.Invoke(this, songModel);
         }
 
-        internal void Add(Song current)
+        public void EditThisSong(SongModel song)
         {
-            songs.Add(current);
+            EditableSong = song;
+            StateChanged?.Invoke(this,State.Editing);
         }
     }
 }

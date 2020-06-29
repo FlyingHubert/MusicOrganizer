@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using MusicOrganizer.Table;
-using MusicOrganizer.Entry;
 using MusicOrganizer.DataAccess;
-using MusicOrganizer.TopBar;
+using MusicOrganizer.UserInterface.Entry;
+using MusicOrganizer.UserInterface.TopBar;
+using MusicOrganizer.UserInterface.Table;
 
 namespace MusicOrganizer
 {
@@ -23,7 +23,7 @@ namespace MusicOrganizer
             TableViewModel = tableViewModel;
             EntryViewModel = entryViewModel;
             TopBarViewModel = topBarViewModel;
-            Get<Mediator>();
         }
+
     }
 }

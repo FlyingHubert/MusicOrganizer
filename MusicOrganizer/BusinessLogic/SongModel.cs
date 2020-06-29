@@ -1,34 +1,25 @@
 ﻿using MusicOrganizer.Entities;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MusicOrganizer.Entry
+namespace MusicOrganizer.BusinessLogic
 {
-    public class SongViewModel : ViewModelBase
+    public class SongModel : ViewModelBase
     {
-        public event EventHandler<Song> SongChanged;
-        private bool isDirty = false;
 
-        public SongViewModel(Song song)
+        public SongModel(Song song)
         {
-            Song = song ?? new Song();
-
-            PropertyChanged += (_, __) =>
+            Song = song ?? throw new ArgumentNullException(nameof(song));
+            foreach (var property in GetType().GetProperties())
             {
-                if (!isDirty)
-                {
-                    SongChanged?.Invoke(this, Song);
-                    isDirty = true;
-                }
-            };
+                Notify(property.Name);
+            }
         }
 
         public Song Song { get; }
-
 
         public string Title
         {
@@ -89,7 +80,6 @@ namespace MusicOrganizer.Entry
                 Notify();
             }
         }
-
 
         public int? CD
         {

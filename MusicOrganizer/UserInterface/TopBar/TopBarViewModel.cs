@@ -1,12 +1,6 @@
 ﻿using MusicOrganizer.BusinessLogic;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MusicOrganizer.TopBar
+namespace MusicOrganizer.UserInterface.TopBar
 {
     public class TopBarViewModel : ViewModelBase
     {
