@@ -1,4 +1,5 @@
 ﻿using MusicOrganizer.BusinessLogic;
+using MusicOrganizer.DI;
 using MusicOrganizer.Entities;
 using MusicOrganizer.UserInterface.Entry;
 using MusicOrganizer.Utils;

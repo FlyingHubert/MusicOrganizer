@@ -3,10 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MusicOrganizer.Entry"
+             xmlns:local="clr-namespace:MusicOrganizer.UserInterface.Entry"
              xmlns:controls="clr-namespace:MusicOrganizer.UserInterface.Controls"
              mc:Ignorable="d" Background="Transparent">
 
+    <UserControl.Resources>
+        <Style TargetType="controls:NamedTextBox">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="Background" Value="#FF2E2E2E" x:Name="back" />
+            <Setter Property="Foreground" Value="{DynamicResource brush2}"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="{DynamicResource brush3}"/>
+                    <Setter Property="Background" Value="{DynamicResource background4}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -24,7 +40,9 @@
             <TextBlock Text="Hinzufügen" Foreground="{DynamicResource brush3}" VerticalAlignment="Center" FontSize="{DynamicResource fontSize}" Margin="5,0"/>
         </StackPanel>
 
-        <Grid Grid.Row="1">
+
+
+        <Grid Grid.Row="1" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
@@ -36,20 +54,52 @@
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-            <controls:NamedTextBox Grid.Row="0" Grid.Column="0" Text="{Binding Current.Title}" HasFocus="{Binding FirstItemHasFocus}" F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Title" Label="Titel" />
-            <controls:NamedTextBox Grid.Row="1" Grid.Column="0" Text="{Binding Current.Interpret}" F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Interpret" Label="Interpret" />
-            <!--  <local:NamedTextBox Grid.Row="2" Grid.Column="0" Text="{Binding Current.Titelgem}" F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Titelgem" Label="Titelgem" /> -->
-            <controls:NamedTextBox Grid.Row="3" Grid.Column="0" Text="{Binding Current.LP}" F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="LP" Label="LP" />
-            <controls:NamedTextBox Grid.Row="4" Grid.Column="0" Text="{Binding Current.single}" F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="single" Label="Single" />
-            <controls:NamedTextBox Grid.Row="5" Grid.Column="0" Text="{Binding Current.Art}" F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Art" Label="Genre/Art" />
-            <controls:NamedTextBox Grid.Row="6" Grid.Column="0" Text="{Binding Current.CD}" F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="CD" Label="CD" />
-            <controls:NamedTextBox Grid.Row="7" Grid.Column="0" Text="{Binding Current.Jahr}" F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Jahr" Label="Jahr" />
-            <controls:NamedTextBox Grid.Row="8" Grid.Column="0" Text="{Binding Current.Komponist}" F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Komponist" Label="Komponist" />
-            <controls:NamedTextBox Grid.Row="9" Grid.Column="0" Text="{Binding Current.Bemerkungen}" F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Bemerkungen" Label="Bemerkungen" />
+            <controls:NamedTextBox Grid.Row="0"  Grid.Column="0" 
+                                Text="{Binding Current.Title}" HasFocus="{Binding FirstItemHasFocus}" 
+                                F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Title" Label="Titel" />
+
+            <controls:NamedTextBox Grid.Row="1" Grid.Column="0" 
+                                Text="{Binding Current.Interpret}" 
+                                F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Interpret" Label="Interpret" />
+
+            <!--  
+        <controls:NamedTextBox Grid.Row="2" Grid.Column="0"
+                                Text="{Binding Current.Titelgem}" F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Titelgem" Label="Titelgem" /> 
+        -->
+
+            <controls:NamedTextBox Grid.Row="3" Grid.Column="0" 
+                                Text="{Binding Current.LP}" 
+                                F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="LP" Label="LP" />
+
+            <controls:NamedTextBox Grid.Row="4" Grid.Column="0" 
+                                Text="{Binding Current.single}" 
+                                F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="single" Label="Single" />
+
+            <controls:NamedTextBox Grid.Row="5" Grid.Column="0" 
+                                Text="{Binding Current.Art}" 
+                                F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Art" Label="Genre/Art" />
+
+            <controls:NamedTextBox Grid.Row="6" Grid.Column="0" 
+                                Text="{Binding Current.CD}" 
+                                F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="CD" Label="CD" />
+
+            <controls:NamedTextBox Grid.Row="7" Grid.Column="0" 
+                                Text="{Binding Current.Jahr}" 
+                                F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Jahr" Label="Jahr" />
+
+            <controls:NamedTextBox Grid.Row="8" Grid.Column="0" 
+                                Text="{Binding Current.Komponist}" 
+                                F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Komponist" Label="Komponist" />
+
+            <controls:NamedTextBox Grid.Row="9" Grid.Column="0" 
+                                Text="{Binding Current.Bemerkungen}" 
+                                F5Command="{Binding F5Command}" F10Command="{Binding F10Command}" CommandParameter="Bemerkungen" Label="Bemerkungen" />
         </Grid>
+
+        
+      
 
         <Button Grid.Row="2" Content="Hinzufügen [F10]" Height="60" Command="{Binding F10Command}">
         </Button>

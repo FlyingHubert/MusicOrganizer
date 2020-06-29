@@ -22,12 +22,12 @@
         </ListView.ContextMenu>
         <ListView.ItemContainerStyle>
             <Style TargetType="ListViewItem">
-                <Setter Property="Background" Value="{DynamicResource background1}"/>
+                <Setter Property="Background" Value="{DynamicResource background3}"/>
                 <Setter Property="Foreground" Value="{DynamicResource brush2}"/>
                 <Style.Triggers>
                     <Trigger Property="IsSelected" Value="True">
                         <Setter Property="Background" Value="{DynamicResource brush2}"/>
-                        <Setter Property="Foreground" Value="{DynamicResource background1}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource background3}"/>
                     </Trigger>
                     <Trigger Property="IsMouseOver" Value="True">
                         <Setter Property="Background" Value="{DynamicResource brush3}"/>
@@ -58,7 +58,7 @@
                                             <ColumnDefinition Width="auto"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <Border x:Name="HeaderBorder" Background="{DynamicResource background1}" Margin="0" Padding="5">
+                                        <Border x:Name="HeaderBorder" Background="{DynamicResource background3}" Margin="0" Padding="5">
                                             <ContentPresenter x:Name="HeaderContent"
                                                   RecognizesAccessKey="True"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -66,7 +66,7 @@
                                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                         </Border>
                                             
-                                        <Canvas Grid.Column="1" Width="10" Background="{DynamicResource background1}">
+                                        <Canvas Grid.Column="1" Width="10" Background="{DynamicResource background3}">
                                             <Thumb x:Name="PART_HeaderGripper">
                                                 <Thumb.Style>
                                                     <Style TargetType="Thumb">

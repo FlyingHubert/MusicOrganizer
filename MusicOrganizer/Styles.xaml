@@ -4,8 +4,11 @@
                     xmlns:sys="clr-namespace:System;assembly=System.Runtime">
     <!-- colors -->
 
-    <SolidColorBrush x:Key="background1" Color="#515151"/>
-    <SolidColorBrush x:Key="background2" Color="#181313"/>
+    <SolidColorBrush x:Key="background1" Color="#8A8A8A"/>
+    <SolidColorBrush x:Key="background2" Color="#7A7A7A"/>
+    <SolidColorBrush x:Key="background3" Color="#5E5E5E"/>
+    <SolidColorBrush x:Key="background4" Color="#515151"/>
+    <SolidColorBrush x:Key="background5" Color="#363636"/>
     <SolidColorBrush x:Key="brush2" Color="#2a9dbf"/>
     <SolidColorBrush x:Key="brush3" Color="#29c46a"/>
     <SolidColorBrush x:Key="brush4" Color="#f4a261"/>

@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MusicOrganizer.UserInterface.TopBar"
-             xmlns:entry="clr-namespace:MusicOrganizer.UserInterface.Entry"
+             xmlns:controls="clr-namespace:MusicOrganizer.UserInterface.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="600" Background="Transparent">
     <Grid Margin="10,0,5,10">
@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <entry:NamedTextBox Label="Suche" Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource brush3}"/>
+        <controls:NamedTextBox Label="Suche" Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource brush3}"/>
     </Grid>
+    
 </UserControl>

@@ -1,6 +1,4 @@
-﻿
-using MusicOrganizer.Table;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -107,6 +105,6 @@ namespace MusicOrganizer.UserInterface.Controls
             }
         }
 
-        public ICommand AbortCommand { get; } = new AbortCommand();
+        public ICommand AbortCommand { get; }
     }
 }

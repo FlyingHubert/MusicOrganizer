@@ -45,7 +45,7 @@ namespace MusicOrganizer.BusinessLogic
 
         public void AddSongToDatabase()
         {
-            Database.Add(EditableSong.Song);
+            Database.Insert(EditableSong.Song);
             SongAdded.Invoke(this, EditableSong);
             EditableSong = new SongModel(new Song());
             StateChanged?.Invoke(this,State.Adding);
@@ -54,7 +54,7 @@ namespace MusicOrganizer.BusinessLogic
 
         public void Remove(SongModel songModel)
         {
-            Database.Remove(songModel.Song);
+            Database.Delete(songModel.Song);
             SongRemoved.Invoke(this, songModel);
         }
 

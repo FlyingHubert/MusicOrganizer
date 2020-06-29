@@ -22,8 +22,8 @@
             <ColumnDefinition Width="2.5*" />
         </Grid.ColumnDefinitions>
 
-        <topbar:TopBarView DataContext="{Binding TopBarViewModel}" Grid.Column="1" Padding="10" Margin="0,10,10,10" Background="{DynamicResource background1}"/>
-        <entry:EntryView DataContext="{Binding EntryViewModel}" Grid.RowSpan="2" Padding="10" Margin="10" Background="{DynamicResource background1}" />
-        <table:TableView Grid.Column="1" Grid.Row="1" DataContext="{Binding TableViewModel}" Margin="0,0,10,10" Padding="10" Filter="{Binding Filter}" Background="{DynamicResource background1}"/>
+        <topbar:TopBarView DataContext="{Binding TopBarViewModel}" Grid.Column="1" Padding="10" Margin="0,10,10,10" Background="{DynamicResource background3}"/>
+        <entry:EntryView DataContext="{Binding EntryViewModel}" Grid.RowSpan="2" Padding="10" Margin="10" Background="{DynamicResource background3}" />
+        <table:TableView Grid.Column="1" Grid.Row="1" DataContext="{Binding TableViewModel}" Margin="0,0,10,10" Padding="10" Filter="{Binding Filter}" Background="{DynamicResource background3}"/>
     </Grid>
 </Window>

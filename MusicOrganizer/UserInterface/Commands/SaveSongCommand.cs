@@ -1,14 +1,7 @@
 ﻿using MusicOrganizer.BusinessLogic;
-using MusicOrganizer.DataAccess;
 using MusicOrganizer.DI;
-using MusicOrganizer.Entities;
-using MusicOrganizer.Table;
-
+using MusicOrganizer.UserInterface.Entry;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MusicOrganizer.UserInterface.Commands
