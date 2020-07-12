@@ -2,8 +2,6 @@
 using MusicOrganizer.DI;
 using MusicOrganizer.Entities;
 using MusicOrganizer.UserInterface.Entry;
-using MusicOrganizer.Utils;
-
 using System;
 using System.Windows.Input;
 
@@ -29,7 +27,7 @@ namespace MusicOrganizer.UserInterface.Commands
 
         public void Execute(object parameter)
         {
-            var type = typeof(Song);
+            var type = typeof(SongModel);
             var property = type.GetProperty(parameter as string);
             var entry = Ninja.Get<EntryViewModel>();
 

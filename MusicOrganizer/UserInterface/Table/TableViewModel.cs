@@ -37,7 +37,8 @@ namespace MusicOrganizer.UserInterface.Table
             set
             {
                 selectedSongModel = value;
-                Manager.EditThisSong(selectedSongModel);
+                if(selectedSongModel != null)
+                    Manager.EditThisSong(selectedSongModel);
                 Notify();
             }
 

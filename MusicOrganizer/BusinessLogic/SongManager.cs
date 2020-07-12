@@ -17,6 +17,7 @@ namespace MusicOrganizer.BusinessLogic
         {
             Database = database;
             EditableSong = new SongModel(new Song());
+            StateChanged?.Invoke(this, State.Adding);
         }
 
         private SongModel editableSong;
@@ -33,6 +34,12 @@ namespace MusicOrganizer.BusinessLogic
                 editableSong = value;
                 EditableSongChanged?.Invoke(this, EventArgs.Empty);
             }
+        }
+
+        internal void FinishEditing()
+        {
+            EditableSong = new SongModel(new Song());
+            StateChanged?.Invoke(this, State.Adding);
         }
 
         public SongModel PreviousEditableSong { get; set; }

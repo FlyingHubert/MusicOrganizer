@@ -20,12 +20,11 @@ namespace MusicOrganizer.UserInterface.Commands
 
         public void Execute(object parameter)
         {
+            var manager = Ninja.Get<SongManager>();
+            manager.FinishEditing();
+
             var table = Ninja.Get<TableViewModel>();
             table.SelectedSongModel = null;
-
-            var manager = Ninja.Get<SongManager>();
-            manager.Remove(manager.EditableSong);
-            manager.AddSongToDatabase();
         }
     }
 }

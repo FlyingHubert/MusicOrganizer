@@ -12,6 +12,8 @@ namespace MusicOrganizer
 {
     class MainViewModel : ViewModelBase
     {
+        private string filter;
+
         public TableViewModel TableViewModel { get; }
 
         public EntryViewModel EntryViewModel { get; }
@@ -20,10 +22,28 @@ namespace MusicOrganizer
 
         public MainViewModel(TableViewModel tableViewModel, EntryViewModel entryViewModel, TopBarViewModel topBarViewModel)
         {
-            TableViewModel = tableViewModel;
-            EntryViewModel = entryViewModel;
             TopBarViewModel = topBarViewModel;
+            TableViewModel = tableViewModel;
+            TopBarViewModel.PropertyChanged += OnTopBarPropertyChanged;
+            EntryViewModel = entryViewModel;
         }
 
+        private void OnTopBarPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == nameof(TopBarViewModel.SearchString))
+            {
+                TableViewModel.Filter = TopBarViewModel.SearchString;
+            }
+        }
+
+        public string Filter
+        {
+            get => filter;
+            set
+            {
+                filter = value;
+                Notify();
+            }
+        }
     }
 }

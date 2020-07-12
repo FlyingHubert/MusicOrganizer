@@ -19,6 +19,7 @@ namespace MusicOrganizer.Utils
             Bind<MainViewModel>().ToSelf().InSingletonScope();
             Bind<TopBarViewModel>().ToSelf().InSingletonScope();
             Bind<SaveSongCommand>().ToSelf();
+            Bind<AbortCommand>().ToSelf();
         }
     }
 }

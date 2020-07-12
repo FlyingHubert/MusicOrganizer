@@ -1,12 +1,5 @@
 ﻿using MusicOrganizer.BusinessLogic;
-using MusicOrganizer.Entities;
 using MusicOrganizer.UserInterface.Commands;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -19,7 +12,6 @@ namespace MusicOrganizer.UserInterface.Entry
         private Visibility editVisible;
         private readonly SongManager manager;
 
-        public ICollection<Song> ChangedSongs { get; } = new List<Song>();
 
         public Visibility EditVisible
         {
@@ -38,9 +30,13 @@ namespace MusicOrganizer.UserInterface.Entry
         {
             this.manager = manager;
             F5Command = Get<LoadFromPreviousCommand>();
-            manager.EditableSongChanged += (_, s) => Current = manager.EditableSong;
-            manager.StateChanged += (_, s) => EditVisible = s == State.Editing ? Visibility.Visible : Visibility.Collapsed; 
+            manager.EditableSongChanged += (_, __) => Current = manager.EditableSong;
+            manager.StateChanged += (_, state) =>
+            {
+                EditVisible = state == State.Editing ? Visibility.Visible : Visibility.Collapsed;
+            }; 
             Current = manager.EditableSong;
+            EditVisible = Visibility.Collapsed;
         }
 
         public SongModel Current
@@ -54,6 +50,8 @@ namespace MusicOrganizer.UserInterface.Entry
         }
 
         public ICommand F5Command { get; }
+
+        public ICommand AbortCommand => Get<AbortCommand>();
 
         public ICommand F10Command => Get<SaveSongCommand>();
 

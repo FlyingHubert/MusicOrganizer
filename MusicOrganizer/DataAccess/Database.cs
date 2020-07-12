@@ -21,7 +21,10 @@ namespace MusicOrganizer.DataAccess
 
         public void Delete(Song song)
         {
-            SongContext.Remove(song);
+            var entry = SongContext.Entry(song);
+            var state = entry.State;
+            if (state != Microsoft.EntityFrameworkCore.EntityState.Detached)
+                SongContext.Remove(song);
         }
 
         public void Update(Song song)

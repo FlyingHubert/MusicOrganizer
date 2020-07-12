@@ -72,6 +72,20 @@ namespace MusicOrganizer.UserInterface.Controls
         public static readonly DependencyProperty F5CommandProperty =
             DependencyProperty.Register("F5Command", typeof(ICommand), typeof(NamedTextBox), new FrameworkPropertyMetadata());
 
+
+
+        public ICommand AbortCommand
+        {
+            get { return (ICommand)GetValue(AbortCommandProperty); }
+            set { SetValue(AbortCommandProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for AbortCommand.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AbortCommandProperty =
+            DependencyProperty.Register("AbortCommand", typeof(ICommand), typeof(NamedTextBox), new FrameworkPropertyMetadata());
+
+
+
         public string Label
         {
             get { return (string)GetValue(LabelProperty); }
@@ -89,22 +103,20 @@ namespace MusicOrganizer.UserInterface.Controls
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if((F10Command?.CanExecute(null) ?? false) && e.SystemKey == Key.F10)
+            if((F10Command?.CanExecute(null) ?? false) && (e.SystemKey == Key.F10 || e.Key == Key.F10))
             {
                 F10Command.Execute(CommandParameter);
             }
 
-            if ((F5Command?.CanExecute(null) ?? false) && e.SystemKey == Key.F5)
+            if ((F5Command?.CanExecute(null) ?? false) && (e.SystemKey == Key.F5 || e.Key == Key.F5))
             {
                 F5Command.Execute(CommandParameter);
             }
 
-            if((AbortCommand?.CanExecute(null) ?? false) && e.Key == Key.Escape)
+            if((AbortCommand?.CanExecute(null) ?? false) && (e.SystemKey == Key.Escape || e.Key == Key.Escape))
             {
                 AbortCommand.Execute(CommandParameter);
             }
         }
-
-        public ICommand AbortCommand { get; }
     }
 }

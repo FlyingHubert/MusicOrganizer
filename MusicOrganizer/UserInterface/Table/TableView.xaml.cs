@@ -1,4 +1,5 @@
-﻿using MusicOrganizer.Entities;
+﻿using MusicOrganizer.BusinessLogic;
+using MusicOrganizer.Entities;
 
 using System.Windows;
 using System.Windows.Controls;
@@ -15,8 +16,6 @@ namespace MusicOrganizer.UserInterface.Table
         {
             InitializeComponent();
         }
-
-
 
         public string Filter
         {
@@ -40,9 +39,9 @@ namespace MusicOrganizer.UserInterface.Table
 
             collectionView.Filter = o =>
             {
-                var searchString = e.NewValue as string;
+                var searchString = (e.NewValue as string).ToLower();
 
-                if (o is Song song)
+                if (o is SongModel song)
                 {
                     return (song.Album != null && song.Album.ToLower().Contains(searchString))
                           || (song.Art != null && song.Art.ToLower().Contains(searchString))

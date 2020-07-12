@@ -7,14 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Margin="-10" x:Name="control">
     <UserControl.Resources>
-        <CollectionViewSource x:Key="songCollectionView" Source="{Binding Songs}"/>
+        <CollectionViewSource x:Key="songCollectionView" Source="{Binding Songs}" IsLiveFilteringRequested="True" />
         <Style x:Name="GridViewColumnHeaderGripper" TargetType="Thumb">
 
         </Style>
     </UserControl.Resources>
 
-    <ListView x:Name="listView" ItemsSource="{Binding Source={StaticResource songCollectionView}}" SelectedItem="{Binding SelectedSongModel}" Background="{Binding Path=Background, ElementName=control}" BorderThickness="0" 
-              Padding="10" FontSize="15">
+    <ListView x:Name="listView" ItemsSource="{Binding Source={StaticResource songCollectionView}}" 
+              SelectedItem="{Binding SelectedSongModel}" Background="{Binding Path=Background, ElementName=control}" BorderThickness="0" FontSize="15">
         <ListView.ContextMenu>
             <ContextMenu>
                 <MenuItem Header="Löschen" Command="{Binding RemoveCommand}" CommandParameter="{Binding }"/>
@@ -22,7 +22,7 @@
         </ListView.ContextMenu>
         <ListView.ItemContainerStyle>
             <Style TargetType="ListViewItem">
-                <Setter Property="Background" Value="{DynamicResource background3}"/>
+                <Setter Property="Background" Value="{DynamicResource background4}"/>
                 <Setter Property="Foreground" Value="{DynamicResource brush2}"/>
                 <Style.Triggers>
                     <Trigger Property="IsSelected" Value="True">
@@ -66,18 +66,18 @@
                                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                         </Border>
                                             
-                                        <Canvas Grid.Column="1" Width="10" Background="{DynamicResource background3}">
+                                        <Canvas Grid.Column="1" Width="5" Background="{DynamicResource background3}">
                                             <Thumb x:Name="PART_HeaderGripper">
                                                 <Thumb.Style>
                                                     <Style TargetType="Thumb">
                                                         <Setter Property="Canvas.Right" Value="0"/>
                                                         <Setter Property="Height" Value="{Binding ActualHeight, RelativeSource={RelativeSource TemplatedParent}}"/>
                                                         <Setter Property="Padding" Value="0"/>
-                                                        <Setter Property="Background" Value="{DynamicResource brush4}"/>
+                                                        <Setter Property="Background" Value="{DynamicResource background3}"/>
                                                         <Setter Property="Template">
                                                             <Setter.Value>
                                                                 <ControlTemplate TargetType="{x:Type Thumb}">
-                                                                    <Border Background="{DynamicResource brush3}" Padding="{TemplateBinding Padding}" CornerRadius="5" Width="4" Height="16"/>
+                                                                    <Border Background="{DynamicResource background2}" Padding="{TemplateBinding Padding}" CornerRadius="2" Width="4" Height="16"/>
                                                                 </ControlTemplate>
                                                             </Setter.Value>
                                                         </Setter>
@@ -92,9 +92,9 @@
                     </Style>
                 </GridView.ColumnHeaderContainerStyle>
                 <GridView.Columns >
-                    <GridViewColumn Header="Titel" DisplayMemberBinding="{Binding Title}" Width="auto"/>
-                    <GridViewColumn Header="Interpret" DisplayMemberBinding="{Binding Interpret}" Width="auto"/>
-                    <GridViewColumn Header="Album" DisplayMemberBinding="{Binding Album}" Width="auto"/>
+                    <GridViewColumn Header="Titel" DisplayMemberBinding="{Binding Title}" Width="200"/>
+                    <GridViewColumn Header="Interpret" DisplayMemberBinding="{Binding Interpret}" Width="150"/>
+                    <GridViewColumn Header="Album" DisplayMemberBinding="{Binding Album}" Width="150"/>
                     <GridViewColumn Header="LP" DisplayMemberBinding="{Binding LP}" Width="auto"/>
                     <GridViewColumn Header="Single" DisplayMemberBinding="{Binding single}" Width="auto"/>
                     <GridViewColumn Header="Art" DisplayMemberBinding="{Binding Art}" Width="auto"/>
